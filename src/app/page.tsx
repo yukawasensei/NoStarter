@@ -125,8 +125,38 @@ export default function Home() {
   return (
     <main>
       <div>
+        <p className=" font-sans px-8 py-4 bg-blue-600 text-white text-center text-sm mx-4 my-3 w-fit rounded-lg hover:bg-blue-400 hover:cursor-pointer active:bg-blue-700">Player 1: Chris</p>
+
+      </div>
+
+      <div className=" grid grid-rows-2 grid-flow-col gap-6">
+        <div className=" bg-slate-400 p-1">one</div>
+        <div className=" bg-slate-400 p-1">two</div>
+        <div className=" bg-slate-400 p-1">three</div>
+        <div className=" bg-slate-400 p-1">four</div>
+        <div className=" bg-slate-400 p-1">one</div>
+        <div className=" bg-slate-400 p-1">two</div>
+        <div className=" bg-slate-400 p-1">three</div>
+      </div>
+
+      <div>
+        <h1>Tommy the cat</h1>
+
+        <p className="text-red-500 font-mono leading-10" >I remember as if it were a meal ago...</p>
+
+        <p>
+          Said Tommy the Cat as he reeled back to clear whatever foreign matter may have
+          nestled its way into his mighty throat. Many a fat alley rat had met its
+          demise while staring point blank down the cavernous barrel of this awesome
+          prowling machine. Truly a wonder of nature this urban predator — Tommy the cat
+          had many a story to tell. But it was a rare occasion such as this that he did.
+        </p>
+
+      </div>
+
+      <div>
         <div className="w-2/3">
-        <h1 className="text-3xl m-4 ml-6 p-4 bg-slate-400">Title 1</h1>
+          <h1 className="text-3xl m-4 ml-6 p-4 bg-slate-400">Title 1</h1>
         </div>
         <h2 className="text-2xl">Title 2</h2>
         <h3 className="text-xl">Title 3</h3>

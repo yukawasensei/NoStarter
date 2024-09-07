@@ -1,37 +1,50 @@
+'use client';
+
 import Image from "next/image";
+import { useEffect } from 'react';
+import { initCursorEffect } from './cursorEffect';
 
 export default function Home() {
+  // useEffect(() => {
+  //   initCursorEffect();
+  // }, []);
+
   return (
-    <main className="bg-gradient-to-br from-purple-900 to-green-800 min-h-screen text-white font-retro">
-      <header className="w-full bg-black bg-opacity-50 p-6 border-b-4 border-neon-green">
-        <h1 className="text-5xl font-bold text-center text-neon-purple glow">Chris的复古未来</h1>
+    <main className="bg-emerald-50 min-h-screen font-serif">
+      <header className="p-8 text-center">
+        <h1 className="text-4xl font-bold text-purple-800 hover-underline-animation">艾米丽的设计世界</h1>
       </header>
 
-      <section className="flex flex-col items-center mt-16">
-        <div className="relative w-48 h-48 mb-8">
-          <Image src="/retro-profile.jpg" alt="Profile Picture" layout="fill" className="rounded-full border-4 border-neon-green glow" />
-        </div>
-        <h2 className="text-3xl font-semibold mb-4 text-neon-green glow">你好,我是Chris</h2>
-        <p className="text-xl text-center max-w-md">UX设计师 | 复古未来主义者 | 像素艺术家</p>
-      </section>
-
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 p-8">
-        <div className="bg-black bg-opacity-50 p-6 rounded-lg border-2 border-neon-purple hover:border-neon-green transition-colors duration-300">
-          <h3 className="text-2xl font-semibold mb-4 text-neon-purple">复古UI设计</h3>
-          <p className="text-gray-300">融合80年代科幻美学与现代用户体验。</p>
-        </div>
-        <div className="bg-black bg-opacity-50 p-6 rounded-lg border-2 border-neon-purple hover:border-neon-green transition-colors duration-300">
-          <h3 className="text-2xl font-semibold mb-4 text-neon-purple">像素艺术创作</h3>
-          <p className="text-gray-300">用现代工具重现经典像素艺术的魅力。</p>
-        </div>
-        <div className="bg-black bg-opacity-50 p-6 rounded-lg border-2 border-neon-purple hover:border-neon-green transition-colors duration-300">
-          <h3 className="text-2xl font-semibold mb-4 text-neon-purple">复古未来交互设计</h3>
-          <p className="text-gray-300">创造令人惊叹的复古风格交互体验。</p>
+      <section className="flex justify-center items-center my-16">
+        <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-emerald-600 hover-rotate">
+          <Image 
+            src="https://via.placeholder.com/256" 
+            alt="艾米丽的照片" 
+            fill 
+            style={{ objectFit: 'cover' }} 
+          />
         </div>
       </section>
 
-      <footer className="w-full bg-black bg-opacity-50 p-6 mt-16 border-t-4 border-neon-green">
-        <p className="text-center text-neon-purple">© 2023 Chris | 用复古设计连接过去与未来</p>
+      <section className="max-w-3xl mx-auto text-center px-4">
+        <h2 className="text-2xl font-semibold text-purple-700 mb-4">优雅简约，以人为本</h2>
+        <p className="text-emerald-800 leading-relaxed">
+          我是艾米丽，一位专注于创造优雅简约用户体验的UX设计师。
+          我的设计灵感源自文艺复兴时期的极简主义，追求形式与功能的完美平衡。
+        </p>
+      </section>
+
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto my-16 px-4">
+        {[1, 2, 3].map((project) => (
+          <div key={project} className="bg-white p-6 rounded-lg shadow-lg hover-lift">
+            <h3 className="text-xl font-semibold text-purple-700 mb-2">项目 {project}</h3>
+            <p className="text-emerald-700">这是项目{project}的简要描述，展示了我的设计理念和解决方案。</p>
+          </div>
+        ))}
+      </section>
+
+      <footer className="text-center p-8 text-emerald-700">
+        <p>© 2023 艾米丽的设计工作室 | 优雅 • 简约 • 人性化</p>
       </footer>
     </main>
   );

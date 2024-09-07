@@ -16,7 +16,14 @@ module.exports = {
         xs: '12px',
         sm: '15px',
         base: '18px'
-      }
+      },
+      colors: {
+        'neon-purple': '#b026ff',
+        'neon-green': '#39ff14',
+      },
+      fontFamily: {
+        'retro': ['VT323', 'monospace'],
+      },
     },
   },
   plugins: [],

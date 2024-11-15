@@ -1,50 +1,136 @@
 'use client';
 
 import Image from "next/image";
-import { useEffect } from 'react';
-import { initCursorEffect } from './cursorEffect';
 
 export default function Home() {
-  // useEffect(() => {
-  //   initCursorEffect();
-  // }, []);
-
   return (
-    <main className="bg-emerald-50 min-h-screen font-serif">
-      <header className="p-8 text-center">
-        <h1 className="text-4xl font-bold text-purple-800 hover-underline-animation">艾米丽的设计世界</h1>
-      </header>
+    <main className="bg-white min-h-screen">
+      {/* Navigation */}
+      <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-blue-600">Nova</span>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Products</a>
+              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Solutions</a>
+              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Resources</a>
+              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Enterprise</a>
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-      <section className="flex justify-center items-center my-16">
-        <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-emerald-600 hover-rotate">
-          <Image 
-            src="https://via.placeholder.com/256" 
-            alt="艾米丽的照片" 
-            fill 
-            style={{ objectFit: 'cover' }} 
-          />
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+            Transform Your Business with
+            <span className="text-blue-600"> AI</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+            Harness the power of artificial intelligence to streamline operations,
+            boost productivity, and drive innovation across your organization.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
+              Start Free Trial
+            </button>
+            <button className="border border-gray-300 text-gray-700 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-50 transition-colors">
+              Schedule Demo
+            </button>
+          </div>
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto text-center px-4">
-        <h2 className="text-2xl font-semibold text-purple-700 mb-4">优雅简约，以人为本</h2>
-        <p className="text-emerald-800 leading-relaxed">
-          我是艾米丽，一位专注于创造优雅简约用户体验的UX设计师。
-          我的设计灵感源自文艺复兴时期的极简主义，追求形式与功能的完美平衡。
-        </p>
-      </section>
-
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto my-16 px-4">
-        {[1, 2, 3].map((project) => (
-          <div key={project} className="bg-white p-6 rounded-lg shadow-lg hover-lift">
-            <h3 className="text-xl font-semibold text-purple-700 mb-2">项目 {project}</h3>
-            <p className="text-emerald-700">这是项目{project}的简要描述，展示了我的设计理念和解决方案。</p>
+      {/* Features Grid */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Smart Analytics",
+                description: "Get real-time insights and predictive analysis to make data-driven decisions.",
+                icon: "📊"
+              },
+              {
+                title: "Automation",
+                description: "Automate repetitive tasks and workflows to increase team efficiency.",
+                icon: "⚡"
+              },
+              {
+                title: "Integration",
+                description: "Seamlessly connect with your existing tools and systems.",
+                icon: "🔄"
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </section>
 
-      <footer className="text-center p-8 text-emerald-700">
-        <p>© 2023 艾米丽的设计工作室 | 优雅 • 简约 • 人性化</p>
+      {/* Social Proof */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">Trusted by Industry Leaders</h2>
+          <div className="flex flex-wrap justify-center items-center gap-12 opacity-50">
+            {Array(6).fill(0).map((_, i) => (
+              <div key={i} className="h-12 w-32 bg-gray-200 rounded"></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Product</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Security</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+            2024 Nova. All rights reserved.
+          </div>
+        </div>
       </footer>
     </main>
   );

@@ -1,137 +1,94 @@
 'use client';
 
 import Image from "next/image";
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', darkMode);
+  }, [darkMode]);
+
   return (
-    <main className="bg-white min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600">Nova</span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Products</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Solutions</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Resources</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Enterprise</a>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                Get Started
+    <div className={`${darkMode ? 'dark' : ''} min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50`}>
+      <header className="bg-white dark:bg-gray-800 shadow-md py-6">
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <span className="font-bold text-xl text-purple-600 dark:text-purple-400">艾米丽的设计</span>
+          <button onClick={() => setDarkMode(!darkMode)} className="bg-gray-200 dark:bg-gray-700 rounded-full p-2">
+            {darkMode ? '☀️' : '🌙'}
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section className="container mx-auto mt-16 px-6 text-center">
+          <div className="max-w-xl mx-auto">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
+              创造卓越的用户体验
+            </h1>
+            <p className="mt-6 text-lg text-gray-600 dark:text-gray-400">
+              我是艾米丽，一位热衷于构建直观、美观且以用户为中心的数字产品的UX设计师。
+            </p>
+            <div className="mt-8 flex justify-center space-x-4">
+              <button className="rounded-md bg-purple-600 px-5 py-3 text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:bg-purple-500 dark:hover:bg-purple-600">
+                查看我的作品
+              </button>
+              <button className="rounded-md border border-gray-300 dark:border-gray-700 px-5 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                联系我
               </button>
             </div>
           </div>
-        </div>
-      </nav>
+        </section>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-            Transform Your Business with
-            <span className="text-blue-600"> AI</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-            Harness the power of artificial intelligence to streamline operations,
-            boost productivity, and drive innovation across your organization.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
-              Start Free Trial
-            </button>
-            <button className="border border-gray-300 text-gray-700 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-50 transition-colors">
-              Schedule Demo
-            </button>
+        <section className="container mx-auto mt-24 px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-semibold text-gray-900 dark:text-gray-100">我的设计理念</h2>
+              <p className="mt-4 text-gray-600 dark:text-gray-400">
+                我坚信优秀的设计能够解决复杂的问题，并提升人们的生活品质。我的方法是深入理解用户需求，结合创新思维和精湛的工艺，创造出既实用又令人愉悦的体验。
+              </p>
+            </div>
+            <div className="relative">
+              <Image
+                src="https://images.unsplash.com/photo-1517245386804-18b452541f1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="设计理念"
+                fill
+                className="rounded-lg object-cover"
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Features Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <section className="container mx-auto mt-24 px-6">
+          <h2 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 text-center mb-12">精选项目</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Smart Analytics",
-                description: "Get real-time insights and predictive analysis to make data-driven decisions.",
-                icon: "📊"
-              },
-              {
-                title: "Automation",
-                description: "Automate repetitive tasks and workflows to increase team efficiency.",
-                icon: "⚡"
-              },
-              {
-                title: "Integration",
-                description: "Seamlessly connect with your existing tools and systems.",
-                icon: "🔄"
-              }
-            ].map((feature, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+            {[1, 2, 3].map((project) => (
+              <div key={project} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                <Image
+                  src={`https://source.unsplash.com/random/600x400?ux&sig=${project}`}
+                  alt={`项目 ${project}`}
+                  width={600}
+                  height={400}
+                  className="object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">项目名称 {project}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">简要描述该项目的设计目标和成果。</p>
+                  <a href="#" className="inline-block mt-4 text-purple-600 dark:text-purple-400 hover:underline">了解更多</a>
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* Social Proof */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">Trusted by Industry Leaders</h2>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-50">
-            {Array(6).fill(0).map((_, i) => (
-              <div key={i} className="h-12 w-32 bg-gray-200 rounded"></div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Product</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Security</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Company</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Resources</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-            2024 Nova. All rights reserved.
-          </div>
+      <footer className="bg-gray-100 dark:bg-gray-800 mt-24 py-12">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-gray-600 dark:text-gray-400">© 2023 艾米丽的设计工作室。所有权利保留。</p>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }

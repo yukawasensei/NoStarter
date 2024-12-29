@@ -5,41 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
 @layer base {
   html {
     @apply text-black;
     font-family: 'Inter', sans-serif;
   }
 }
-
-/* p {
-  color: red;
-  font-family: Helvetica, Arial, sans-serif;
-} */
 
 .glow {
   text-shadow: 0 0 10px currentColor;
@@ -84,8 +55,12 @@ body::before {
 }
 
 body {
-  background-color: #f0fdf4;
-  color: #065f46;
+  @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  @apply mx-auto max-w-7xl;
 }
 
 .hover-underline-animation {
